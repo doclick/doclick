@@ -6,15 +6,16 @@
   </div>
 </template>
 
-<!--style src='./theme.css'></style-->
+<!--style src='./theme.css'></style#d3b1c2#382a40-->
+<style lang="scss" src="./assets/scss/theme.scss"></style>
+
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Menu from "./components/Menu.vue";
 import Home from "@/views/Home";
 @Component({
   components: {
-    Menu, Home
+    Home
   }
 })
 export default class App extends Vue {
