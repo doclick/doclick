@@ -1,17 +1,18 @@
 import Vue from 'vue';
-import Ionic from '@ionic/vue';
 import App from './App.vue';
 import router from './router';
-import store from './store';
-//import './filters';
+import store from './store/store';
 import '@ionic/core/css/core.css';
 import '@ionic/core/css/ionic.bundle.css';
-Vue.config.productionTip = false;
 
-Vue.use(Ionic);
+import IonicVue from '@ionic/vue';
+
+Vue.use(IonicVue); 
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount('#app');

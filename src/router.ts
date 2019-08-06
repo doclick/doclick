@@ -1,19 +1,9 @@
 import Vue from 'vue';
-import { NavigationGuard } from 'vue-router';
 import { IonicVueRouter } from '@ionic/vue';
-import store from './store';
+import Home from './views/Home.vue';
 
 Vue.use(IonicVueRouter);
 
-const privateRoute: NavigationGuard = function(to, from, next) {
-  if (!store.state.user.isAuthenticated) {
-    next({ name: 'login' });
-  } else {
-    next();
-  }
-};
-
-// base: process.env.BASE_URL,
 export default new IonicVueRouter({
   mode: 'history',
   base: '/',
@@ -60,5 +50,5 @@ export default new IonicVueRouter({
         }
       ]
     }
-  ]
+  ],
 });

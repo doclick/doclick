@@ -1,7 +1,0 @@
-{
-    "name": "heelo",
-    "integrations": {
-      "capacitor": {}
-    },
-    "type": "custom"
-  }

@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "name": "Brian",
+        "last_name": "Vanegas Parra",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 2,
+        "name": "Adaline",
+        "last_name": "Reichel",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 3,
+        "name": "Dr. Santa",
+        "last_name": "Prosacco DVM",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 4,
+        "name": "Noemy",
+        "last_name": "Vandervort V",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 5,
+        "name": "Lexi",
+        "last_name": "O'Conner",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 6,
+        "name": "Gracie",
+        "last_name": "Weber",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 7,
+        "name": "Roscoe",
+        "last_name": "Johns",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 8,
+        "name": "Emmett",
+        "last_name": "Lebsack",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 9,
+        "name": "Keegan",
+        "last_name": "Thiel",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 10,
+        "name": "Wellington",
+        "last_name": "Koelpin II",
+        "avatar": "avatar.png"
+    },
+    {
+        "id": 11,
+        "name": "Ms. Karley",
+        "last_name": "Kiehn V",
+        "avatar": "avatar.png"
+    }   
+]

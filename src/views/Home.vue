@@ -1,5 +1,5 @@
 <template>
-   <div>
+  <div>
     <ion-tabs>
       <ion-tab tab="/nearby">
         <ion-vue-router name="nearby"></ion-vue-router>
@@ -42,11 +42,14 @@
     </ion-tabs>
   </div>
 </template>
+
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-@Component
-export default class Home extends Vue {
+import { Component, Vue } from 'vue-property-decorator';
 
-}
+@Component({
+  components: {
+    
+  },
+})
+export default class Home extends Vue {}
 </script>
-
