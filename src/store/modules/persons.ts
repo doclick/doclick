@@ -4,17 +4,18 @@ export default {
         persons: []
     },
     getters: {
-        persons: state => state.persons
+        persons: (state:any) => state.persons
     },
     mutations: {
-        SET_PERSONS: (state, payload) => state.persons = payload
+        SET_PERSONS: (state:any, payload:any) => state.persons = payload
     },
     actions: {
         getNearby({commit}) {
-            this.dispatch('index', 'data/persons.json')
-            .then((data) => {
+            //this.dispatch('index', 'data/persons.json')
+            this.dispatch('index', 'user')
+            .then((data:any) => {
                 commit('SET_PERSONS', data)
-            }).catch(error => {
+            }).catch((error:any) => {
             })
         }
     }
