@@ -26,4 +26,14 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+ion-header {
+  background-color: #f27980;
+  color: #fcfcdf;
+}
+
+ion-tab-bar, ion-tab-button {
+  background-color: #f27980;
+  color: #fcfcdf;
+}
 </style>
