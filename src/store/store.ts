@@ -10,7 +10,7 @@ export default new Vuex.Store({
     persons
   },
   state: {
-    api: axios.create({baseURL: ''})
+    api: axios.create({baseURL: process.env.VUE_APP_API})
   },
   mutations: {
 
