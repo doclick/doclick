@@ -33,11 +33,11 @@ export default new IonicVueRouter({
           }
         },
         {
-          path: "/chat",
-          name: "chat",
+          path: "/matches",
+          name: "matches",
           components: {
-            chat: () =>
-              import(/* webpackChunkName: "chat" */ "@/views/Chat.vue")
+            matches: () =>
+              import(/* webpackChunkName: "matches" */ "@/views/Matches.vue")
           }
         },
         {

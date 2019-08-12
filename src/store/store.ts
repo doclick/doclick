@@ -16,9 +16,9 @@ export default new Vuex.Store({
 
   },
   actions: {
-    index({commit, state}, endpoint) {
+    index({commit, state}, payload) {
       return new Promise((res,rej) => {
-        state.api.get(endpoint)
+        state.api.get(payload.endpoint, {params: payload.params?payload.params:{}})
         .then((response) => {
           res(response.data)
         })
