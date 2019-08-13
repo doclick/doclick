@@ -5,3 +5,16 @@
         </ion-toolbar>
     </ion-header>
 </template>
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+@Component({
+  components: {
+  },
+  computed: {
+  },
+})
+export default class Chat extends Vue {
+    @Prop({default: null})
+    user_id: number
+}
+</script>
