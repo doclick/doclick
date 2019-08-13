@@ -41,7 +41,7 @@ export default new IonicVueRouter({
           }
         },
         {
-          path: "/discover",
+          path: "/discover/:id?",
           name: "discover",
           components: {
             discover: () =>
