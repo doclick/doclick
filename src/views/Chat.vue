@@ -1,3 +1,7 @@
 <template>
-    <h1>Chat</h1>
+    <ion-header translucent>
+        <ion-toolbar>
+            <ion-title>Chat</ion-title>
+        </ion-toolbar>
+    </ion-header>
 </template>

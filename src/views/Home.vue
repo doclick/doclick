@@ -5,8 +5,8 @@
         <ion-vue-router name="nearby"></ion-vue-router>
       </ion-tab>
 
-      <ion-tab tab="/chat">
-        <ion-vue-router name="chat"></ion-vue-router>
+      <ion-tab tab="/matches">
+        <ion-vue-router name="matches"></ion-vue-router>
       </ion-tab>
 
       <ion-tab tab="/discover">
@@ -23,7 +23,7 @@
           <!--ion-label>Tab 2</ion-label-->
         </ion-tab-button>
 
-        <ion-tab-button tab="/chat">
+        <ion-tab-button tab="/matches">
           <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"/>
           <!--ion-label>Chat</ion-label-->
         </ion-tab-button>
@@ -48,7 +48,7 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {
-    
+
   },
 })
 export default class Home extends Vue {}

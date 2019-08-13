@@ -41,6 +41,14 @@ export default new IonicVueRouter({
           }
         },
         {
+          path: "/matches",
+          name: "matches",
+          components: {
+            matches: () =>
+              import(/* webpackChunkName: "matches" */ "@/views/Matches.vue")
+          }
+        },
+        {
           path: "/discover/:id?",
           name: "discover",
           components: {
