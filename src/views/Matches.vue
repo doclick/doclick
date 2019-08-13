@@ -1,9 +1,9 @@
 <template>
     <ion-content>
         <ion-header translucent>
-        <ion-toolbar>
-            <ion-title>Chat</ion-title>
-        </ion-toolbar>
+            <ion-toolbar>
+                <ion-title>Chat</ion-title>
+            </ion-toolbar>
         </ion-header>
         <ion-content fullscreen>
             <ion-list>
@@ -31,6 +31,7 @@
                     <ion-label>
                         <h2>{{match.name}} {{match.last_name}}</h2>
                     </ion-label>
+                    <ion-badge col-2 color="danger" v-if="!match.pivot.view_at">Nuevo</ion-badge>
                 </ion-item>
             </ion-list>
         </ion-content>
