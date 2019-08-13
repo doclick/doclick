@@ -10,7 +10,10 @@ export default {
     },
     mutations: {
         SET_PERSONS: (state:any, payload:any) => state.persons = payload,
-        SET_MATCHES: (state:any, payload:any) => state.matches = payload
+        SET_MATCHES: (state:any, payload:any) => state.matches = payload,
+        SOCKET_USER: (state:any, payload:any) => {
+            state.persons.push(payload)
+        },
     },
     actions: {
         getNearby({commit}) {
