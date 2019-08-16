@@ -2,16 +2,16 @@
     <div>
         <ion-header>
           <ion-toolbar>
-            <ion-title>Chat con</ion-title>
+            <ion-title>Chat con {{ name }}</ion-title>
             <ion-buttons slot="end">
-                <ion-button onclick="dismissModal()">Close</ion-button>
+                <ion-button @click="dismissModal()">Close</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
         <ion-content padding>
             <ion-item>
               <ion-label position="floating">Mensaje</ion-label>
-              <ion-input v-model="message" name="message" type="text"></ion-input>
+              <ion-input :value="chat.message" @input="chat.message = $event.target.value" name="message" type="text"></ion-input>
               <ion-icon name="send" slot="end" @click="sendMessage"></ion-icon>
             </ion-item>
         </ion-content>
@@ -19,35 +19,34 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+
 @Component({
   components: {
 
   },
   computed: {
+
   },
 })
 export default class Chat extends Vue {
-    chat = {
+    public chat = {
         user_id: 1,
         user_id_to: this.user_id_to,
-    }
-
-    data() {
-        return {
-            message: undefined,
-
-        }
+        message: ''
     }
 
     @Prop({default: null})
     user_id_to: number
 
+    @Prop({default: ''})
+    name: string
+
     public sendMessage() {
-        console.log(this.message)
+        this.$parent.$emit('sendMessage', this.chat)
     }
 
-    public mounted() {
-        console.log(this.chat)
+    dismissModal() {
+      this.$parent.$emit('close')
     }
 }
 </script>

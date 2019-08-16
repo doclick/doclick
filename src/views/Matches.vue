@@ -29,7 +29,7 @@
                         <img :src="match.avatar">
                     </ion-avatar>
                     <ion-label>
-                        <h2 @click="loadChat(match.id)">{{match.name}} {{match.last_name}}</h2>
+                        <h2 @click="loadChat(match)">{{match.name}} {{match.last_name}}</h2>
                     </ion-label>
                     <ion-badge col-2 color="danger" v-if="!match.pivot.view_at">Nuevo</ion-badge>
                 </ion-item>
@@ -41,9 +41,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Chat from './Chat'
 import { mapGetters } from 'vuex'
+
 @Component({
   components: {
-      Chat
+    Chat
   },
   computed: {
       ...mapGetters({'matches': 'persons/matches'}),
@@ -52,7 +53,7 @@ import { mapGetters } from 'vuex'
 export default class Matches extends Vue {
     public matches!: any[];
 
-    public loadChat(user_id_to) {
+    loadChat(user) {
         console.log("load chat modal")
         return this.$ionic.modalController
         .create({
@@ -62,15 +63,26 @@ export default class Matches extends Vue {
               content: 'New Content',
             },
             propsData: {
-              user_id_to: user_id_to
+              user_id_to: user.id,
+              name: user.name
             },
+            parent: this,
           },
         })
-        .then(m => m.present())
+        .then(m => m.present({
+
+        }))
     }
 
-    public mounted() {
+    mounted() {
         this.$store.dispatch('persons/matches');
+        this.$on('close', () => {
+            this.$ionic.modalController.dismiss()
+        })
+
+        this.$on('sendMessage', (chat:Object) => {
+            this.$store.dispatch('messages/sendMessage', chat)
+        })
     }
 }
 </script>
