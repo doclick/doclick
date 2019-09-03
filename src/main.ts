@@ -9,6 +9,12 @@ import '@ionic/core/css/ionic.bundle.css';
 
 Vue.use(IonicVue);
 
+const token = localStorage.getItem('token')
+if (token) {
+    store.state.api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    store.commit('user/SET_AUTH', true)
+}
+
 import VueSocketIO from 'vue-socket.io';
 import io from 'socket.io-client';
 const SocketInstance = io.connect('http://192.168.10.10:3000');

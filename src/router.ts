@@ -1,20 +1,38 @@
 import Vue from 'vue';
+import { NavigationGuard } from 'vue-router';
 import { IonicVueRouter } from '@ionic/vue';
-import Home from './views/Home.vue';
+import store from './store/store'
 
 Vue.use(IonicVueRouter);
+
+const privateRoute: NavigationGuard = function(to, from, next) {
+  if (!store.state.user.isAuthenticated) {
+    next({ name: 'login' });
+  } else {
+    next();
+  }
+};
 
 export default new IonicVueRouter({
   mode: 'history',
   base: '/',
   routes: [
-    { path: "/", redirect: "/home" },
-
+    {
+      path: "/",
+      redirect: "/home"
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "login" */ '@/views/Login')
+      // beforeEnter: requiresTutorialRoute
+    },
     {
       path: "/home",
       name: "home",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Home.vue"),
+        beforeEnter: privateRoute,
       children: [
         {
           path: "/about",

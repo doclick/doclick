@@ -3,15 +3,17 @@ import Vuex from 'vuex';
 import axios from 'axios'
 import persons from './modules/persons'
 import messages from './modules/messages'
+import user from './modules/user'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    persons, messages
+    persons, messages, user
   },
   state: {
     api: axios.create({baseURL: process.env.VUE_APP_API}),
+    loading: false,
     user: {
       id: 1,
       name: 'Brian',
@@ -19,10 +21,12 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    userAuth: state => state.user
+    userAuth: state => state.user,
+    loading: state => state.loading,
+    api: state => state.api
   },
   mutations: {
-
+    SET_LOADING: (state, payload) => state.loading = payload
   },
   actions: {
     index({commit, state}, payload) {
