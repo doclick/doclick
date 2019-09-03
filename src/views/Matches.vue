@@ -11,14 +11,15 @@
                     Conversaciones Recientes
                 </ion-list-header>
 
-                <!--ion-item v-for="match in matches" :key="match.id">
+                <ion-item v-for="conversation in conversations" :key="conversation.id">
                     <ion-avatar slot="start">
-                        <img :src="match.avatar">
+                        <img :src="conversation.userTo.avatar">
                     </ion-avatar>
                     <ion-label>
-                        <h2>{{match.name}} {{match.last_name}}</h2>
+                        <h2>{{conversation.userTo.name}} {{conversation.userTo.last_name}}</h2>
+                        <h4>{{conversation.message}}</h4>
                     </ion-label>
-                </ion-item-->
+                </ion-item>
 
                 <ion-list-header>
                     Matches
@@ -47,11 +48,12 @@ import { mapGetters } from 'vuex'
     Chat
   },
   computed: {
-      ...mapGetters({'matches': 'persons/matches'}),
+      ...mapGetters({'matches': 'persons/matches', 'conversations': 'messages/conversations'}),
   },
 })
 export default class Matches extends Vue {
-    public matches!: any[];
+    matches!: any[];
+    conversations!: any[];
 
     loadChat(user) {
         console.log("load chat modal")
@@ -75,6 +77,8 @@ export default class Matches extends Vue {
     }
 
     mounted() {
+        this.$store.dispatch('messages/getConversations');
+
         this.$store.dispatch('persons/matches');
         this.$on('close', () => {
             this.$ionic.modalController.dismiss()
