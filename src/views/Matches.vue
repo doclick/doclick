@@ -16,7 +16,7 @@
                         <img :src="conversation.userTo.avatar">
                     </ion-avatar>
                     <ion-label>
-                        <h2>{{conversation.userTo.name}} {{conversation.userTo.last_name}}</h2>
+                        <h2 @click="loadChat(conversation)">{{conversation.userTo.name}} {{conversation.userTo.last_name}}</h2>
                         <h4>{{conversation.message}}</h4>
                     </ion-label>
                 </ion-item>
@@ -56,7 +56,7 @@ export default class Matches extends Vue {
     conversations!: any[];
 
     loadChat(user) {
-        console.log("load chat modal")
+        console.log(user)
         return this.$ionic.modalController
         .create({
           component: Chat,
@@ -65,7 +65,8 @@ export default class Matches extends Vue {
               content: 'New Content',
             },
             propsData: {
-              user_id_to: user.id,
+              user_id_to: user.user_id_to,
+              user_id: user.id,
               name: user.name
             },
             parent: this,
